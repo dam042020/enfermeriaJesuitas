@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.modelo.profesor;
+package org.jesuitasrioja.proyectoFinalEval.modelo.responsable;
 
 import java.io.Serializable;
 
@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfesorDTO implements Serializable {
+public class ResponsableDTO implements Serializable {
 	private String identificador;
 	private String nombre;
+	private String parentesco;
 	private String telefono;
 }

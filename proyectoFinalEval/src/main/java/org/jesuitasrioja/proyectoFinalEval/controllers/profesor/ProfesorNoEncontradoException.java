@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers;
+package org.jesuitasrioja.proyectoFinalEval.controllers.profesor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ProfesorNoEncontradoException extends RuntimeException {
 
 	public ProfesorNoEncontradoException(String identificadorProducto) {
-		super("alumn with " + identificadorProducto + " could not be retrieved");
+		super("teacher with " + identificadorProducto + " could not be retrieved");
 	}
 
 }

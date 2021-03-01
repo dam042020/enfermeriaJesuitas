@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfesorDTO2 implements Serializable {
-	// TODO
 	private String nombre;
 }

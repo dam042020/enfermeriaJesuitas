@@ -17,22 +17,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "Profesor")
 public class Profesor {
 	@Id
-	@ApiModelProperty(value = "identificador del alumno", dataType = "String", position = 1, example = "1")
+	@ApiModelProperty(value = "identificador del profesor", dataType = "String", position = 1, example = "1")
 	private String identificador;
 
-	@ApiModelProperty(value = "dni del alumno", dataType = "String", position = 2, example = "12345678A")
-	private String dni;
-
-	@ApiModelProperty(value = "nombre del alumno", dataType = "String", position = 3, example = "Aitor")
+	@ApiModelProperty(value = "nombre del profesor", dataType = "String", position = 2, example = "Aitor")
 	private String nombre;
 
-	@ApiModelProperty(value = "fecha de nacimiento del alumno", dataType = "String", position = 4, example = "01/02/2000")
-	private String fechaNacimiento;
-
-	@ApiModelProperty(value = "telefono del alumno", dataType = "String", position = 5, example = "123456789")
+	@ApiModelProperty(value = "telefono del profesor", dataType = "String", position = 3, example = "123456789")
 	private String telefono;
-
-	@ApiModelProperty(value = "direccion del alumno", dataType = "String", position = 6, example = "Logroño, Calle: calleFalsa123, N: 3, Piso:E")
-	private String direccion;
-
 }

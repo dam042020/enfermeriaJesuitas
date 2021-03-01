@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers;
+package org.jesuitasrioja.proyectoFinalEval.controllers.alumno;
 
 import java.util.Optional;
 import java.util.function.Function;

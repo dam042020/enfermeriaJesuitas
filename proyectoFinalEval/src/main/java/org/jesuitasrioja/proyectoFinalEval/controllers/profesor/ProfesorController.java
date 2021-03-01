@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers;
+package org.jesuitasrioja.proyectoFinalEval.controllers.profesor;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -34,7 +34,7 @@ public class ProfesorController {
 	@Autowired
 	private ProfesorDTOConverter profesorDTOConverter;
 
-	// Uso ProfesorDTO2 -- Ofrece: nombre
+	// Uso ResponsableDTO2 -- Ofrece: nombre
 	@GetMapping("/profesors")
 	public ResponseEntity<?> allProducts(@RequestParam(name = "nombre") String nombre,
 			@PageableDefault(size = pageSize, page = 0) Pageable pageable) {
@@ -52,7 +52,7 @@ public class ProfesorController {
 		return ResponseEntity.status(HttpStatus.OK).body(paginaDTO2);
 	}
 
-	// OJO: aqui uso el ProfesorDTO
+	// OJO: aqui uso el ResponsableDTO
 	@GetMapping("/profesor/{id}")
 	public ResponseEntity<?> getProfesor(@PathVariable String id) {
 		Optional<Profesor> profesorOptional = ps.findById(id);
