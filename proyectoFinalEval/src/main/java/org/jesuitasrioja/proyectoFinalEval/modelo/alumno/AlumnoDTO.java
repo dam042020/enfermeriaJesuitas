@@ -20,6 +20,4 @@ public class AlumnoDTO implements Serializable {
 	private String fechaNacimiento;
 	private String telefono;
 	private String direccion;
-	private Profesor tutor;
-	private Set<Responsable> responsables;
 }

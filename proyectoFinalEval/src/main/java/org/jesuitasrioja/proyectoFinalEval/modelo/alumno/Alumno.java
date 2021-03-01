@@ -1,9 +1,8 @@
 package org.jesuitasrioja.proyectoFinalEval.modelo.alumno;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.jesuitasrioja.proyectoFinalEval.modelo.profesor.Profesor;
@@ -41,9 +40,11 @@ public class Alumno {
 	private String direccion;
 	
 	@ApiModelProperty(value = "tutor del alumno", dataType = "Profesor", position = 7)
+	@OneToMany(targetEntity = Profesor.class)
 	private Profesor tutor;
 	
-	@ApiModelProperty(value = "tutor del alumno", dataType = "Profesor", position = 7)
-	private Set<Responsable> responsables;
+	@ApiModelProperty(value = "responsable del alumno", dataType = "Responsable", position = 8)
+	@OneToMany(targetEntity = Responsable.class)
+	private Responsable responsable;
 
 }
