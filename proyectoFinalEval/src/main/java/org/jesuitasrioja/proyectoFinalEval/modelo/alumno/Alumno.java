@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Alumno")
+@Table(name = "Profesor")
 public class Alumno {
 	@Id
 	@ApiModelProperty(value = "identificador del alumno", dataType = "String", position = 1, example = "1")
