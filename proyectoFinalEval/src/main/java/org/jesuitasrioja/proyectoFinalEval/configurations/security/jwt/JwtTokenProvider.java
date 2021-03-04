@@ -67,7 +67,7 @@ public class JwtTokenProvider {
 
 	// a partir de un token, obtendremos el id del usuario.
 	public String getUserIdFromJWT(String token) {
-		// obtengo los claims del token primero parseando
+		// objtengo los claims del token primero parseando
 		Claims claims = Jwts.parser()
 				// luego establezco la clave con el mismo secreto que antes
 				.setSigningKey(Keys.hmacShaKeyFor(jwtSecreto.getBytes()))

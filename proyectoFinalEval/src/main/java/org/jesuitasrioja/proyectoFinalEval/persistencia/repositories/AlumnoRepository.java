@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AlumnoRepository extends JpaRepository<Alumno, String> {
 
-	@Query(value = "select a from Profesor a where a.nombre = :name", nativeQuery = true)
+	@Query(value = "select a from Alumno a where a.nombre = :name", nativeQuery = true)
 	public Page<Alumno> findByName(@Param("name") String name, Pageable pageable);
 
 	public Page<Alumno> findByNombre(String nombre, Pageable pageable);

@@ -34,7 +34,7 @@ public class AlumnoController {
 	@Autowired
 	private AlumnoDTOConverter alumnoDTOConverter;
 
-	// Uso ProfesorDTO2 -- Ofrece: nombre
+	// Uso AlumnoDTO2 -- Ofrece: nombre
 	@GetMapping("/alumnos")
 	public ResponseEntity<?> allProducts(@RequestParam(name = "nombre") String nombre,
 			@PageableDefault(size = pageSize, page = 0) Pageable pageable) {
@@ -52,7 +52,7 @@ public class AlumnoController {
 		return ResponseEntity.status(HttpStatus.OK).body(paginaDTO2);
 	}
 
-	// OJO: aqui uso el ProfesorDTO
+	// OJO: aqui uso el AlumnoDTO
 	@GetMapping("/alumno/{id}")
 	public ResponseEntity<?> getAlumno(@PathVariable String id) {
 		Optional<Alumno> alumnoOptional = ps.findById(id);
