@@ -2,7 +2,11 @@ package org.jesuitasrioja.proyectoFinalEval.modelo.alumno;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.jesuitasrioja.proyectoFinalEval.modelo.profesor.Profesor;
+import org.jesuitasrioja.proyectoFinalEval.modelo.responsable.Responsable;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -34,5 +38,13 @@ public class Alumno {
 
 	@ApiModelProperty(value = "direccion del alumno", dataType = "String", position = 6, example = "Logroño, Calle: calleFalsa123, N: 3, Piso:E")
 	private String direccion;
+	
+	@ApiModelProperty(value = "tutor del alumno", dataType = "Profesor", position = 7)
+	@OneToMany(targetEntity = Profesor.class)
+	private Profesor tutor;
+	
+	@ApiModelProperty(value = "responsable del alumno", dataType = "Responsable", position = 8)
+	@OneToMany(targetEntity = Responsable.class)
+	private Responsable responsable;
 
 }

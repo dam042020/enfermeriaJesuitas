@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers;
+package org.jesuitasrioja.proyectoFinalEval.controllers.alumno;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -34,11 +34,13 @@ public class AlumnoController {
 	@Autowired
 	private AlumnoDTOConverter alumnoDTOConverter;
 
+	// GET alumnos
 	// Uso AlumnoDTO2 -- Ofrece: nombre
 	@GetMapping("/alumnos")
 	public ResponseEntity<?> allProducts(@RequestParam(name = "nombre") String nombre,
 			@PageableDefault(size = pageSize, page = 0) Pageable pageable) {
 
+		// TODO filtros
 		Page<Alumno> paginaAlumno = ps.encontrarPorNombre(nombre, pageable);
 
 		// transformar elementos de la pagina a DTO
@@ -52,17 +54,32 @@ public class AlumnoController {
 		return ResponseEntity.status(HttpStatus.OK).body(paginaDTO2);
 	}
 
+	// GET alumno/{idAlumno}
 	// OJO: aqui uso el AlumnoDTO
-	@GetMapping("/alumno/{id}")
-	public ResponseEntity<?> getAlumno(@PathVariable String id) {
-		Optional<Alumno> alumnoOptional = ps.findById(id);
+	@GetMapping("/alumno/{idAlumno}")
+	public ResponseEntity<?> getAlumno(@PathVariable String idAlumno) {
+		Optional<Alumno> alumnoOptional = ps.findById(idAlumno);
 		if (alumnoOptional.isPresent()) {
 			Alumno alumno = alumnoOptional.get();
 			AlumnoDTO alumnoDTO = alumnoDTOConverter.convertAlumnoToAlumnoDTO(alumno);
 			return ResponseEntity.status(HttpStatus.OK).body(alumnoDTO);
 		} else {
-			throw new AlumnoNoEncontradoException(id);
+			throw new AlumnoNoEncontradoException(idAlumno);
 		}
+	}
+
+	// DELETE alumno/{idAlumno}
+	@DeleteMapping("/alumno/{idAlumno}")
+	public String deleteAlumno(@PathVariable String idAlumno) {
+		ps.deleteById(idAlumno);
+		return "OK";
+	}
+
+	// PUT alumno/{idAlumno}
+	@PutMapping("/alumno/{idAlumno}")
+	public String putAlumno(@PathVariable String idAlumno) {
+		ps.deleteById(idAlumno);
+		return "OK";
 	}
 
 	@GetMapping("/alumno")
@@ -70,6 +87,7 @@ public class AlumnoController {
 		return ps.findById(id).get();
 	}
 
+	// POST alumno
 	@PostMapping("/alumno")
 	public String postAlumno(@RequestBody Alumno nuevoAlumno) {
 		return ps.save(nuevoAlumno).toString();
@@ -78,12 +96,6 @@ public class AlumnoController {
 	@PutMapping("/alumno")
 	public String putAlumno(@RequestBody Alumno editadoAlumno) {
 		return ps.edit(editadoAlumno).toString();
-	}
-
-	@DeleteMapping("/alumno/{id}")
-	public String deleteAlumno(@PathVariable String id) {
-		ps.deleteById(id);
-		return "OK";
 	}
 
 }

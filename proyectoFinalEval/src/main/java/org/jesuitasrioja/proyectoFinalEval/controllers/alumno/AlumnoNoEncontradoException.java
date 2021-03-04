@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers;
+package org.jesuitasrioja.proyectoFinalEval.controllers.alumno;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

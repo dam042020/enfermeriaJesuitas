@@ -1,6 +1,10 @@
 package org.jesuitasrioja.proyectoFinalEval.modelo.alumno;
 
 import java.io.Serializable;
+import java.util.Set;
+
+import org.jesuitasrioja.proyectoFinalEval.modelo.profesor.Profesor;
+import org.jesuitasrioja.proyectoFinalEval.modelo.responsable.Responsable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
