@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers.profesor;
+package org.jesuitasrioja.proyectoFinalEval.controllers;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -61,7 +61,7 @@ public class ProfesorController {
 			ProfesorDTO profesorDTO = profesorDTOConverter.convertProfesorToProfesorDTO(profesor);
 			return ResponseEntity.status(HttpStatus.OK).body(profesorDTO);
 		} else {
-			throw new ProfesorNoEncontradoException(id);
+			throw new EntidadNoEncontradaException(id);
 		}
 	}
 

@@ -1,4 +1,4 @@
-package org.jesuitasrioja.proyectoFinalEval.controllers.responsable;
+package org.jesuitasrioja.proyectoFinalEval.controllers;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -61,7 +61,7 @@ public class ResponsableController {
 			ResponsableDTO responsableDTO = responsableDTOConverter.convertResponsableToResponsableDTO(responsable);
 			return ResponseEntity.status(HttpStatus.OK).body(responsableDTO);
 		} else {
-			throw new ResponsableNoEncontradoException(id);
+			throw new EntidadNoEncontradaException(id);
 		}
 	}
 

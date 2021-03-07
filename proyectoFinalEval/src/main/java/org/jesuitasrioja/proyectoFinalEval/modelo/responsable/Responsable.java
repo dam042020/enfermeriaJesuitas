@@ -7,16 +7,20 @@ import javax.persistence.Table;
 import io.swagger.annotations.ApiModelProperty;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.EqualsAndHashCode.Include;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "Responsable")
 public class Responsable {
 	@Id
+	@Include
 	@ApiModelProperty(value = "identificador del responsable", dataType = "String", position = 1, example = "1")
 	private String identificador;
 

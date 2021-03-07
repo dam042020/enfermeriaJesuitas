@@ -24,7 +24,7 @@ public class AlumnoService extends BaseService<Alumno, String, AlumnoRepository>
 		return this.repositorio.findByName(nombre, p);
 	}
 	
-	public Optional<Alumno> encontrarPorId(String id) {
+	public Optional<Alumno> findBy(String id) {
 		return this.repositorio.findById(id);
 	}
 

@@ -24,8 +24,10 @@ public class ResponsableService extends BaseService<Responsable, String, Respons
 		return this.repositorio.findByName(nombre, p);
 	}
 	
-	public Optional<Responsable> encontrarPorId(String id) {
+	public Optional<Responsable> findById(String id) {
 		return this.repositorio.findById(id);
 	}
+	
+	
 
 }

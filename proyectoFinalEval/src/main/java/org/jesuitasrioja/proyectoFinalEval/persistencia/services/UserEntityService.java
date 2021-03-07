@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserEntityService extends BaseService<UserEntity, String, UserEntityRepository> {
-
 	@Autowired
 	@Lazy
 	private PasswordEncoder passwordEncoder;
@@ -24,20 +23,20 @@ public class UserEntityService extends BaseService<UserEntity, String, UserEntit
 		return this.repositorio.findByUsername(username);
 	}
 
-	// metodo que nos permitirá registrar un nuevo usuario en el sistema
+	// metodo que permite registrar un nuevo usuario en el sistema
 	public UserEntity nuevoUsuario(UserEntity userEntity) {
-		Set<UserRole> defaultRoles = new HashSet<UserRole>();
 		userEntity.setId(String.valueOf(Math.abs(new Random().nextInt())));
 		userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
-		// en caso de no haber asignado un rol en la petición, añadimos uno por defecto
+
+		// en caso de no haber asignado un rol en la peticion, aniadimos uno por defecto
+		Set<UserRole> defaultRoles = new HashSet<UserRole>();
+		defaultRoles.add(UserRole.USER);
+
 		if (userEntity.getRoles() == null) {
-			defaultRoles.add(UserRole.USER);
 			userEntity.setRoles(defaultRoles);
 		} else if (userEntity.getRoles().size() == 0) {
-			defaultRoles.add(UserRole.USER);
 			userEntity.setRoles(defaultRoles);
 		}
 		return this.repositorio.save(userEntity);
 	}
-
 }

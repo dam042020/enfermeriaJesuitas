@@ -1,7 +1,8 @@
 package org.jesuitasrioja.proyectoFinalEval.modelo.alumno;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.sql.Date;
+import java.util.List;
 
 import org.jesuitasrioja.proyectoFinalEval.modelo.profesor.Profesor;
 import org.jesuitasrioja.proyectoFinalEval.modelo.responsable.Responsable;
@@ -13,11 +14,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * Alumno pagina alumno
+ * @author Sergio Ezquerro Ochagavia
+ *
+ */
 public class AlumnoDTO implements Serializable {
-	private String identificador;
 	private String nombre;
-	private String dni;
-	private String fechaNacimiento;
+	private String apellidos;
+	private Date fechaNacimiento;
+	private String nivel;
+	private String grupo;
 	private String telefono;
-	private String direccion;
+	private String correo;
+	private String descripcionMedica;
+	private Profesor tutor;
+	private List<Responsable> responsables;
 }
