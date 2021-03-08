@@ -30,8 +30,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	@Override
-	// Este método expone el mecanismo de autenticación para poder utilizarlo en un
-	// filtro. Por eso lleva la anotación de Bean.
+	// Este metodo expone el mecanismo de autenticacion para poder utilizarlo en un
+	// filtro. Por eso lleva la anotacion de Bean.
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
@@ -44,11 +44,18 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/productos/**").permitAll() // registrar usuario
-				.antMatchers(HttpMethod.GET, "/producto/**").hasRole("ADMIN") // todos los usuarios
+				.antMatchers(HttpMethod.GET, "/alumnos/**").permitAll() // ver todos los alumnos
+				.antMatchers(HttpMethod.GET, "/alumno/**").permitAll() // ver un determinado alumno
+				.antMatchers(HttpMethod.GET, "/usuarios/**").permitAll() // ver todos los usuarios
+				.antMatchers(HttpMethod.POST, "/alumno/**").hasRole("ADMIN") // aniadir un alumno
+				.antMatchers(HttpMethod.PUT, "/alumno/**").hasRole("ADMIN") // modificar un alumno
+				.antMatchers(HttpMethod.DELETE, "/alumno/**").hasRole("ADMIN") // borrar un alumno
+				.antMatchers(HttpMethod.POST, "/usuario/**").hasRole("ADMIN") // aniadir un usuario
+				.antMatchers(HttpMethod.PUT, "/usuario/**").hasRole("ADMIN") // modificar un alumno
+				.antMatchers(HttpMethod.DELETE, "/usuario/**").hasRole("ADMIN") // borrar un alumno
 				.anyRequest().permitAll().and().csrf().disable();
 
-		// Añadimos el filtro (lo hacemos más adelante). Justo antes de
+		// Aniadimos el filtro (lo hacemos mas adelante). Justo antes de
 		// UsernamePasswordAuthenticationFilter.class.
 		http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 	}
